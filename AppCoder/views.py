@@ -68,19 +68,22 @@ def profesor(request):
     else:
         miFormulario=ProfesorFormulario()
     
-    return render(request, "AppCoder/profesorFormulario.html", {"miFormulario":miFormulario})            
+    return render(request, "AppCoder/profesores.html", {"miFormulario":miFormulario})            
 
 def busquedaCamada(request):
     return render(request, "AppCoder/busquedaCamada.html")
 
 
 def buscar(request):
-    if request.GET['camada']:
-        camada = request.GET.get("camada")
-        curso = Curso.objects.filter(camada__icontains=camada)
-
-        return render(request, 'AppCoder/resultadosBusqueda.html', {'cursos':curso, 'camada':camada})
+    if request.method == 'GET':
+        # camada = request.GET.get("camada")
+        # curso = Curso.objects.filter(camada__icontains=camada)
+        # curso = request.GET.get("curso")
+        curso = Curso.objects.all()
+        return render(request, 'AppCoder/resultadosBusqueda.html', {"curso": curso})
     else:
-        respuesta = 'No enviaste datos.'
+        # respuesta = 'No enviaste datos.'
+        print("asd")
+        return render(request, 'AppCoder/resultadosBusqueda.html')
     
-    return HttpResponse(respuesta)
+    # return HttpResponse(respuesta)

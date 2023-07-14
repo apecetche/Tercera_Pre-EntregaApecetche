@@ -1,6 +1,14 @@
-<form action="/AppCoder/buscar/" method="GET">
+{% extends 'AppCoder/padre.html' %}
 
-    <input type="number" name="camada" id="camada">
-    <input type="submit" value="Buscar">
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<form action="/AppCoder/buscar" method="GET">
+
+    <!-- <input type="number" name="camada" id="camada"> -->
+    <input type="submit" value="Ver Cursos">
     
 </form>
+
+{% endblock %}

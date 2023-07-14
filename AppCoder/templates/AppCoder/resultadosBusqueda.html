@@ -1,11 +1,18 @@
-<p>Estamos buscando el: {{camada}}</p>
+{% extends 'AppCoder/padre.html' %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+
+<p>Cursos existentes</p>
 
 {% if curso %}
     <ul>
 
         {% for cur in curso %}
-            <li> {{curso.nombre}} </li>
-            <li> {{curso.camada}} </li>
+            <li> Nombre: {{cur.nombre}} - Camada: {{cur.camada}}</li>
         {% endfor %}
     </ul>
 {% endif %}
+
+{% endblock %}
